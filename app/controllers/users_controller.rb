@@ -21,7 +21,8 @@ class UsersController < ApplicationController
       name: params[:user][:name],
       dob: params[:user][:dob],
       email: params[:user][:email],
-      phone_number: params[:user][:phone_number]
+      phone_number: params[:user][:phone_number],
+      address: params[:user][:address]
     )
 
     if @user.save
@@ -44,7 +45,8 @@ class UsersController < ApplicationController
       name: params[:user][:name],
       dob: params[:user][:dob],
       email: params[:user][:email],
-      phone_number: params[:user][:phone_number]
+      phone_number: params[:user][:phone_number],
+      address: params[:user][:address]
     )
       redirect_to @user, notice: "User Updated!"
     else
