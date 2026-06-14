@@ -10,13 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.1].define(version: 2026_06_14_103648) do
+ActiveRecord::Schema[8.1].define(version: 2026_06_14_104849) do
   create_table "posts", force: :cascade do |t|
     t.text "content"
     t.datetime "created_at", null: false
+    t.integer "creator_id"
     t.string "title"
     t.datetime "updated_at", null: false
     t.integer "user_id", null: false
+    t.index ["creator_id"], name: "index_posts_on_creator_id"
     t.index ["user_id"], name: "index_posts_on_user_id"
   end
 
@@ -28,4 +30,5 @@ ActiveRecord::Schema[8.1].define(version: 2026_06_14_103648) do
   end
 
   add_foreign_key "posts", "users"
+  add_foreign_key "posts", "users", column: "creator_id"
 end
